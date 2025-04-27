@@ -24,11 +24,11 @@ class SettingSeeder extends Seeder
             ],
             [
                 'key' => 'address',
-                'value' => 'xyz, abc, 1234, Nepal'
+                'value' => 'Paharganz, Delhi, 144411, New Delhi'
             ],
             [
                 'key' => 'business_phone',
-                'value' => '+911234567890'
+                'value' => '+91 83689 28779'
             ],
             [
                 'key' => 'working_horse',
@@ -36,7 +36,7 @@ class SettingSeeder extends Seeder
             ],
             [
                 'key' => 'description',
-                'value' => 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore um.'
+                'value' => 'Mejocare is a leading medial service specialist in the field of health and wellness. We are dedicated to providing high-quality medical care and support to our patients, ensuring their well-being and satisfaction.'
             ],
             [
                 'key' => 'logo',

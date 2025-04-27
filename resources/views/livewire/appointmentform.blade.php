@@ -3,7 +3,7 @@
 
        <h3><span>+</span> Book Appointment</h3>
        <div class="form">
-          <form wire:submit.prevent="store_requested_appointment()">
+          <form wire:submit.prevent="store_requested_appointment">
              <fieldset>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -42,6 +42,20 @@
                     </div>
                  </div>
 
+                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="row">
+        <div class="form-group">
+            <select wire:model.lazy="doctor" class="form-control">
+            <option value="">Select Doctor</option>
+            @foreach ($doctors as $doctor)
+            <option value="{{ $doctor->id }}">{{ $doctor->employ->name }}</option>
+             @endforeach
+         </select>
+            @error('doctor') <span class="text-danger text-xs">{{ $message }}</span> @enderror
+        </div>
+    </div>
+</div>
+
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                    <div class="row">
                        <div class="form-group">
@@ -50,22 +64,7 @@
                        </div>
                    </div>
                 </div>
-
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                   <div class="row">
-                      <div class="form-group">
-                         <select wire:model.lazy="doctor" name="doctor"  class="form-control">
-                          @forelse (\App\Models\doctor::all() as $doctor)
-                            <option value="{{ $doctor->name }}">{{ $doctor->name }}</option>
-                          @empty
-                           <option>No Doctor Found!</option>
-                          @endforelse
-                         </select>
-
-                         @error('doctor') <span class="text-red-500 text-danger text-xs">{{ $message }}</span> @enderror
-                      </div>
-                   </div>
-                </div>
+                
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                    <div class="row">
                       <div class="form-group">

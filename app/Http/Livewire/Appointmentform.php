@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Livewire;
+
+use App\models\doctor;
 use App\Models\requestedappointment;
 use Livewire\Component;
 
@@ -31,8 +33,8 @@ class Appointmentform extends Component
             'email'         => $this->email,
             'phone'         => $this->phone,
             'stime'       => $this->stime,
+            'doctor_id'     => $this->doctor,
             'address'       => $this->address,
-            'doctor'       => $this->doctor,
             'message' => $this->message,
         ]);
 
@@ -49,6 +51,7 @@ class Appointmentform extends Component
     }
     public function render()
     {
-        return view('livewire.appointmentform');
+        $doctors = Doctor::with('employ')->get();
+        return view('livewire.appointmentform',compact('doctors'));
     }
 }

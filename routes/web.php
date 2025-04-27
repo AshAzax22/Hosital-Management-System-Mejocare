@@ -14,8 +14,8 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get("/docters", function () {
-    return view('docter');
+Route::get("/doctor", function () {
+    return view('doctor');
 });
 Route::get('/app', function () {
     return view('layouts.app');
@@ -31,7 +31,7 @@ Route::middleware(['auth', 'checksuperadmin'])->group(function () {
     Route::prefix('/admin')->group(function () {
         Route::get('/dashboard', App\Http\Livewire\Admins\Dashboard::class)->name('admin_dashboard');
         Route::get('settings', App\Http\Livewire\Admins\Settings::class)->name('admin_settings');
-        Route::get('nurses', App\Http\Livewire\Admins\Nurses::class)->name('nurses');
+        Route::get('/nurses', App\Http\Livewire\Admins\Nurses::class)->name('nurses');
         // Route::get('/docters', App\Http\Livewire\Admins\Docter::class)->name('admin_docters');
         Route::get('/operationsreport', App\Http\Livewire\Admins\Operationreport::class)->name('admin_operations_report');
         Route::get('/patients', App\Http\Livewire\Admins\Patients::class)->name('admin_patients');
@@ -50,9 +50,9 @@ Route::middleware(['auth', 'checksuperadmin'])->group(function () {
 
         Route::get('/blocks', App\Http\Livewire\Admins\Blocks::class)->name('blocks');
 
-        Route::get('/admin/hods', App\Http\Livewire\Admins\Hods::class)->name('hods');
+        Route::get('/hods', App\Http\Livewire\Admins\Hods::class)->name('hods');
 
-        Route::get('/admin/requestedappointments', App\Http\Livewire\Admins\RequestedAppointments::class)->name('requestedAppointment');
+        Route::get('requestedappointments', App\Http\Livewire\Admins\RequestedAppointments::class)->name('requestedAppointment');
 
         Route::get('/subscribers', App\Http\Livewire\Admins\Subscibers::class)->name('subscibers');
 

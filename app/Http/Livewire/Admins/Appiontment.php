@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Admins;
 
 use App\Models\appointment;
 use App\Models\patient;
-use App\Models\nurse;
 use App\Models\doctor;
 use Livewire\Component;
 
@@ -12,7 +11,6 @@ class Appiontment extends Component
 {
 
     public $patient;
-    public $nurse;
     public $doctor;
     public $start_timeee;
     public $endtime;
@@ -32,11 +30,9 @@ class Appiontment extends Component
             $this->validate([
                 'patient' => 'required|numeric',
                 'doctor' => 'required|numeric',
-                'nurse' => 'required|numeric',
                 ]);
             appointment::create([
                 'patient_id'         => $this->patient,
-                'nurse_id'           => $this->nurse,
                 'doctor_id'         => $this->doctor,
                 'intime ' => $this->start_timeee,
                 'outtime ' => $this->endtime,
@@ -44,7 +40,6 @@ class Appiontment extends Component
             //unset variables
             $this->patient="";
             $this->doctor="";
-            $this->nurse="";
             $this->start_timeee="";
             $this->endtime="";
             session()->flash('message', 'Appointment Created successfully.');
@@ -59,7 +54,6 @@ class Appiontment extends Component
 
         $this->patient = $appointment->patient_id;
         $this->doctor = $appointment->doctor_id;
-        $this->nurse = $appointment->nurse_id;
         $this->start_timeee = $appointment->intime;
         $this->endtime = $appointment->outtime;
 
@@ -70,13 +64,11 @@ class Appiontment extends Component
         $this->validate([
                 'patient' => 'required|numeric',
                 'doctor' => 'required|numeric',
-                'nurse' => 'required|numeric',
             ]);
 
         $appointment = appointment::findOrFail($id);
         $appointment->patient_id = $this->patient;
         $appointment->doctor_id = $this->doctor;
-        $appointment->nurse_id = $this->nurse;
         $appointment->intime = $this->start_timeee;
         $appointment->outtime = $this->endtime;
 
@@ -84,7 +76,7 @@ class Appiontment extends Component
 
         $this->patient="";
         $this->doctor="";
-        $this->nurse="";
+
         $this->start_timeee="";
         $this->endtime="";
 
@@ -105,7 +97,6 @@ class Appiontment extends Component
     {
         return view('livewire.admins.appiontment',[
             'patients'=> patient::all(),
-            'nurses'=> nurse::all(),
             'doctors'=> doctor::all(),
             'appointments'=> appointment::all(),
         ])->layout('admins.layouts.app');

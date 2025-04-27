@@ -51,20 +51,17 @@
     <header>
         <div class="header-top wow fadeIn">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"><img
-                        src="{{ config('app.url') . 'storage/' . $settings["logo"] }}"
-                        alt="logo image "></a>
                 <div class="right-header">
                     <div class="header-info">
                         <div class="info-inner">
                             <span class="icontop"><img src="{{ config('app.url') }}images/phone-icon.png" alt="#"></span>
                             <span class="iconcont"><a
-                                    href="tel:{{ $settings["phone"] ?? '123 123 123' }}">{{ $settings["phone"] ?? '123 123 123' }}</a></span>
+                                    href="tel:{{ $settings["phone"] ?? '+91 83689 28779' }}">{{ $settings["phone"] ?? '+91 83689 28779' }}</a></span>
                         </div>
                         <div class="info-inner">
                             <span class="icontop"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                             <span class="iconcont"><a data-scroll
-                                    href="mailto:{{ $settings["email"] ?? 'tauseed@test.com' }}">{{ $settings["email"] ?? 'tauseed@test.com' }}</a></span>
+                                    href="mailto:{{ $settings["email"] ?? 'mejocare@org' }}">{{ $settings["email"] ?? 'mejocare@org' }}</a></span>
                         </div>
                         <div class="info-inner">
                             <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
@@ -90,9 +87,7 @@
                             <li onclick="check_active('Services')"><a id="Services" data-scroll
                                     href="{{ url('/services') }}">Services</a></li>
                             <li onclick="check_active('Doctors')"><a id="Doctors" data-scroll
-                                    href="{{ url('docters') }}">Doctors</a></li>
-                            <li onclick="check_active('Departments')"><a id="Departments" data-scroll
-                                    href="#departments">Departments</a></li>
+                                    href="{{ url('doctor') }}">Doctors</a></li>
                             <li onclick="check_active('About')"><a id="About" data-scroll
                                     href="{{ url('/about') }}">About us</a></li>
                             <li onclick="check_active('Contact')"><a id="Contact" data-scroll
@@ -106,7 +101,6 @@
                         </ul>
                     </div>
                 </nav>
-                @livewire('search')
             </div>
         </div>
     </header>
@@ -121,7 +115,7 @@
                     <div class="logo padding">
                         <a href="{{ url('/') }}"><img src="{{ 'storage/'.$settings["logo"] ??  config("app.url").'images/logo.png' }}"
                                 alt=""></a>
-                        <p>{{ $settings["description"] ?? 'hi this isLocavore pork belly scen ester pine est chill wave microdosing pop uple itarian cliche artisan.' }}
+                        <p>{{ $settings["description"] ?? 'Mejocare' }}
                         </p>
                     </div>
                 </div>
@@ -129,16 +123,15 @@
                     <div class="footer-info padding">
                         <h3>CONTACT US</h3>
                         <p><i class="fa fa-map-marker"
-                                aria-hidden="true"></i>{{ $settings["address"] ?? 'distric abc P/O xyz sorana' }}
+                                aria-hidden="true"></i>{{ $settings["address"] ?? 'Paharganj Delhi' }}
                         </p>
                         <p><i class="fa fa-paper-plane"
-                                aria-hidden="true"></i>{{ $settings["email"] ?? 'tauseed@test.com' }}
+                                aria-hidden="true"></i>{{ $settings["email"] ?? 'mejocare@org' }}
                         </p>
                         <p><i class="fa fa-phone"
                                 aria-hidden="true"></i>{{ $settings["phone"] ?? '123 123 123' }}</p>
                     </div>
                 </div>
-                @livewire('subscribe')
             </div>
         </div>
     </footer>
